@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Spinner - Spin the Wheel</title>
+    <meta
+      name="description"
+      content="Spin the wheel and get a random result instantly."
+    />
+    <meta name="theme-color" content="#2563eb" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-pattern="aurora">
+    <div class="page-shell">
+      <aside class="settings-panel">
+        <div class="intro-block">
+          <p class="eyebrow">Spin The Wheel</p>
+          <h1>Build a wheel your way.</h1>
+          <p class="intro-copy">
+            Write your own options, change the body background, tune the wheel
+            colors, and watch the preview update instantly on the right. By Vasu
+            Aryan!
+          </p>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label=""></div>
+
+        <section
+          class="tab-panel is-active"
+          data-panel="content"
+          role="tabpanel"
+        >
+          <label class="field">
+            <span>Wheel title</span>
+            <input id="titleInput" type="text" value="Lucky Spinner" />
+          </label>
+
+          <label class="field">
+            <span>Subtitle</span>
+            <input
+              id="subtitleInput"
+              type="text"
+              value="Add your options and spin the wheel."
+            />
+          </label>
+
+          <div class="field-grid">
+            <label class="field">
+              <span>Button text</span>
+              <input
+                id="buttonLabelInput"
+                type="text"
+                value="Click Here to Spin the Wheel"
+              />
+            </label>
+
+            <label class="field">
+              <span>Center label</span>
+              <input id="hubLabelInput" type="text" value="Click" />
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Wheel entries (one per line)</span>
+            <textarea id="itemsInput" rows="10">
+Study
+Play Game
+Watch YouTube
+Go Outside
+Call a Friend
+Relax</textarea
+            >
+          </label>
+
+          <div class="inline-action">
+            <label class="field grow">
+              <span>Add one more option</span>
+              <input
+                id="quickItemInput"
+                type="text"
+                placeholder="Write an extra item e.g. Pizza"
+              />
+            </label>
+            <button class="secondary-button" id="addItemButton" type="button">
+              Add
+            </button>
+          </div>
+
+          <div class="button-row">
+            <button class="ghost-button" id="loadSampleButton" type="button">
+              Load sample list
+            </button>
+            <button class="ghost-button" id="clearItemsButton" type="button">
+              Clear list
+            </button>
+          </div>
+          <div></div>
+        </section>
+
+        <section
+          class="tab-panel"
+          data-panel="appearance"
+          role="tabpanel"
+          hidden
+        >
+          <div class="field-grid field-grid-compact">
+            <label class="field">
+              <span>Body start</span>
+              <input id="bgStartInput" type="color" value="#10213f" />
+            </label>
+
+            <label class="field">
+              <span>Body end</span>
+              <input id="bgEndInput" type="color" value="#f88f39" />
+            </label>
+
+            <label class="field">
+              <span>Panel color</span>
+              <input id="surfaceInput" type="color" value="#fff6e7" />
+            </label>
+
+            <label class="field">
+              <span>Text color</span>
+              <input id="textColorInput" type="color" value="#122033" />
+            </label>
+
+            <label class="field">
+              <span>Wheel rim</span>
+              <input id="rimColorInput" type="color" value="#fff0c3" />
+            </label>
+
+            <label class="field">
+              <span>Pointer</span>
+              <input id="pointerColorInput" type="color" value="#ff5c3b" />
+            </label>
+
+            <label class="field">
+              <span>Center hub</span>
+              <input id="hubColorInput" type="color" value="#122033" />
+            </label>
+
+            <label class="field">
+              <span>Accent glow</span>
+              <input id="accentColorInput" type="color" value="#ffd166" />
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Body pattern</span>
+            <select id="patternSelect">
+              <option value="aurora">Aurora glow</option>
+              <option value="dots">Soft dots</option>
+              <option value="rings">Orbit rings</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Palette mode</span>
+            <select id="paletteModeSelect">
+              <option value="custom">Custom cycle</option>
+              <option value="rainbow">Rainbow</option>
+              <option value="warm">Warm glow</option>
+              <option value="cool">Cool wave</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span
+              >Segment palette (hex colors, one per line or comma
+              separated)</span
+            >
+            <textarea id="paletteInput" rows="6">
+#ff6b6b
+#ffd93d
+#6bcB77
+#4d96ff
+#845ec2
+#ff9671</textarea
+            >
+          </label>
+          <div class="button-row">
+            <button
+              class="ghost-button"
+              id="randomizePaletteButton"
+              type="button"
+            >
+              Randomize palette
+            </button>
+          </div>
+          <div></div>
+        </section>
+
+        <section class="tab-panel" data-panel="motion" role="tabpanel" hidden>
+          <label class="field range-field">
+            <span
+              >Spin duration <strong id="spinDurationValue">6.5s</strong></span
+            >
+            <input
+              id="spinDurationInput"
+              type="range"
+              min="3"
+              max="12"
+              step="0.5"
+              value="6.5"
+            />
+          </label>
+
+          <label class="field range-field">
+            <span>Wheel size <strong id="wheelSizeValue">520px</strong></span>
+            <input
+              id="wheelSizeInput"
+              type="range"
+              min="320"
+              max="620"
+              step="10"
+              value="520"
+            />
+          </label>
+
+          <label class="field range-field">
+            <span>Text size <strong id="textSizeValue">20px</strong></span>
+            <input
+              id="textSizeInput"
+              type="range"
+              min="14"
+              max="28"
+              step="1"
+              value="20"
+            />
+          </label>
+
+          <label class="field range-field">
+            <span>Rim width <strong id="rimWidthValue">8px</strong></span>
+            <input
+              id="rimWidthInput"
+              type="range"
+              min="2"
+              max="18"
+              step="1"
+              value="8"
+            />
+          </label>
+
+          <label class="field range-field">
+            <span
+              >Pointer size <strong id="pointerSizeValue">42px</strong></span
+            >
+            <input
+              id="pointerSizeInput"
+              type="range"
+              min="24"
+              max="64"
+              step="2"
+              value="42"
+            />
+          </label>
+
+          <label class="field range-field">
+            <span
+              >Panel roundness <strong id="panelRadiusValue">28px</strong></span
+            >
+            <input
+              id="panelRadiusInput"
+              type="range"
+              min="18"
+              max="40"
+              step="1"
+              value="28"
+            />
+          </label>
+        </section>
+      </aside>
+
+      <main class="preview-panel">
+        <header class="preview-top">
+          <div>
+            <p class="eyebrow">Live Preview</p>
+            <h2 id="previewTitle">Lucky Spinner</h2>
+            <p class="preview-subtitle" id="previewSubtitle">
+              Add your options and spin the wheel.
+            </p>
+          </div>
+          <button class="spin-launch" id="spinButton" type="button">
+            Click Here to spin the wheel
+          </button>
+        </header>
+
+        <section class="wheel-card">
+          <div class="wheel-stage">
+            <div class="pointer" aria-hidden="true"></div>
+            <canvas id="wheelCanvas" width="720" height="720"></canvas>
+            <button class="hub-button" id="hubButton" type="button">
+              Click
+            </button>
+          </div>
+
+          <div class="result-strip">
+            <div>
+              <p class="result-label">Selected Item</p>
+              <h3 id="resultValue">Press Click to choose</h3>
+            </div>
+            <p class="result-meta" id="resultMeta">6 entries ready</p>
+          </div>
+        </section>
+
+        <section class="preview-grid">
+          <article class="preview-card">
+            <div class="card-head">
+              <p class="eyebrow">Entries Preview</p>
+              <span id="entryCount">6 options</span>
+            </div>
+            <ul class="item-preview" id="itemsPreview"></ul>
+          </article>
+
+          <article class="preview-card">
+            <div class="card-head">
+              <p class="eyebrow">Theme Snapshot</p>
+              <span id="themeSummary">Custom palette</span>
+            </div>
+            <div class="swatch-row" id="swatchRow"></div>
+            <div class="stats-grid">
+              <div class="stat-chip">
+                <span>Spin time</span>
+                <strong id="summaryDuration">6.5s</strong>
+              </div>
+              <div class="stat-chip">
+                <span>Pattern</span>
+                <strong id="summaryPattern">Aurora</strong>
+              </div>
+              <div class="stat-chip">
+                <span>Segments</span>
+                <strong id="summarySegments">8</strong>
+              </div>
+              <div class="stat-chip">
+                <span>Wheel size</span>
+                <strong id="summaryWheelSize">520px</strong>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
