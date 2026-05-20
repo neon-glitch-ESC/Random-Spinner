@@ -31,7 +31,7 @@ https://randomspinner1001.infinityfree.me
 ├── index.html
 ├── style.css
 ├── script.js
-└── assets/
+└── favicon.png
 ```
 
 ## ⚡ How It Works
