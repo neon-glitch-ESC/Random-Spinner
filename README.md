@@ -16,9 +16,6 @@ A simple and interactive random spinner web app built using HTML, CSS, and JavaS
 - CSS3
 - JavaScript
 
-## 🚀 Live Demo
-
-https://randomspinner1001.infinityfree.me
 
 ## 📸 Preview
 
