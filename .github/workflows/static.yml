@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+      - arena/b9316c4b-random-spinner
   workflow_dispatch:
 
 permissions:
